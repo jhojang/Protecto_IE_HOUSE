@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Ubuntu, sans-serif;
+}
+
+.boton_menu {
+    background-color: rgba(255, 255, 255, 0.932);
+    padding: 8px 15px 8px 15px;
+    font-size: 25px;
+    display: none;
+}
+
+.boton_menu i {
+    color: rgb(6, 6, 141);
+    margin-top: 2px;
+    cursor: pointer;
+    border: 2px solid rgb(61, 61, 175);
+    border-radius: 5px;
+    padding: 5px 7px;
+}
+
+.out_menu {
+    display: none;
+}
+
+.bar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+
+.bar-nav img {
+    width: 150px;
+}
+
+nav a {
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .login_big {
+    background-color: rgb(206, 35, 35);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+nav .login_big:hover {
+    background-color: rgb(241, 12, 12);
+    text-decoration: none;
+}
+
+
+.small_screen {
+    display: none;
+}
+
+header {
+    background: url("../image/imagen_iot4.png");
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 630px;
+}
+
+.textos_portada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    height: 80%;
+    margin: 0 auto;
+    color: rgb(6, 6, 141);
+}
+
+h1 {
+    font-size: 90px;
+}
+
+.textos_portada h2 {
+    font-weight: 300;
+}
+
+.textos_portada p {
+    margin-top: 40px;
+}
+
+.textos_portada p a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(50, 50, 206);
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+
+.textos_portada p a:hover {
+    background-color: rgb(34, 34, 148);
+}
+
+.titulo {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 25px;
+    color: rgb(61, 61, 248);
+}
+
+.contenedor {
+    margin: 0 auto;
+    padding: 3% 10%;
+}
+
+.contenedor_child {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contenedor_child img {
+    width: 35%;
+}
+
+.contenedor_child .contenido_texto {
+    width: 48%;
+}
+
+.contenedor-portafolio {
+    background-color: rgb(236, 236, 236);
+}
+
+.galeria_portafolio {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    cursor: pointer;
+    
+}
+
+.imagen_portafolio {
+    width: 24%;
+    height: 200px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.imagen_portafolio > img {
+    width: 100%;
+    height: 100%;
+}
+
+.hover_imagen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgba(61 , 61, 248, 0.534);
+    transform: scale(0);
+    transition: transform .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen_portafolio:hover .hover_imagen {
+    transform: scale(1);
+}
+
+.hover_imagen > img {
+    width: 25%;
+}
+
+.hover_imagen > p {
+    color: white;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    background-color: rgb(61, 61, 248);
+    padding: 50px 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(61, 61, 248);
+}
+
+.card > img {
+    border-radius: 50%;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.card .card_texto {
+    margin-left: 10px;
+    font-size: 13px;
+    color: white;
+    font-weight: 300;
+}
+
+.contenedor_contacto {
+    background-color: rgb(61, 61, 248);
+    padding: 40px 0;
+}
+
+.contenedor_contacto .titulo {
+    color: white;
+}
+
+.contenido_contacto {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.svg_contacto {
+    width: 47%;
+}
+
+.form_contacto {
+    width: 47%;
+    box-sizing: border-box;
+}
+
+.form_contacto div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#nombre,
+#email,
+#asunto,
+#mensaje {
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+}
+
+#nombre,
+#email {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+#asunto {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#mensaje {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer {
+    background-color: rgb(39, 39, 39);
+    padding: 50px 0 0 0;
+    font-size: 14px;
+}
+
+footer h2 {
+    color: white;
+}
+
+footer h4 {
+    color: white;
+}
+
+.footer_child {
+    margin: 0 60px 40px 60px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contenedor_footer h2 {
+    margin-bottom: 20px;
+}
+
+.contenedor_footer p {
+    color: white;
+    margin-bottom: 7px;
+}
+
+.contenedor_footer a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.contenedor_footer a:hover {
+    text-decoration: underline;
+}
+
+.social_image {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.copyright {
+    background-color: rgb(22, 22, 22);
+    color: white;
+    padding: 10px 20px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    header {
+        background-position: center;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    header {
+        background: url("../image/imagen_iot3.png");
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        height: 500px;
+        background-position: center;
+    }
+
+    .textos_portada {
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+}
+
+
+@media screen and (max-width: 865px) {
+
+    .boton_menu {
+        display: block;
+        position: fixed;
+        width: 100%;
+    }
+
+    .small_screen {
+        display: block;
+    }
+
+    header {
+        background: url("../image/imagen_iot3.png");
+        background-size: 900px;
+        background-attachment: local;
+        width: 100%;
+        height: 420px;
+        background-position: center;
+    }
+
+    .textos_portada {
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .big_screen {
+        display: none;
+    }
+
+    .small_screen .logo_small {
+        background-color: rgba(255, 255, 255, 0.932);
+    }
+
+    .small_screen img {
+        margin: 20px;
+    }
+
+    .small_screen {
+        position: fixed;
+        top: 57px;
+        width: 60%;
+        height: 100vh;
+        padding: 0;
+        transition: transform 0.5s;
+        transform: translateX(-100%);
+    }
+
+    .small_screen nav {
+        background-color: rgb(61, 61, 248);
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .small_screen nav a {
+        font-size: 16px;
+        font-weight: 300;
+        text-decoration: none;
+        color: white;
+        margin:  0 10px 5px 10px;
+        padding: 10px;
+    }
+
+    .small_screen nav a div{
+        width: 30px;
+        margin-right: 20px;
+        float: left;
+        text-align: center;
+        color: rgb(28, 37, 85);
+    }
+
+    .small_screen .login_small {
+        color: white;
+        background-color: rgb(226, 39, 39);
+        border-radius: 50px;
+        width: 85%;
+        margin: 100px auto 0 auto;
+        text-align: center;
+    }
+
+    .small_screen .login_small:hover {
+        background-color: rgb(252, 9, 9);
+    }
+
+    .out_menu {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.363);
+    }
+
+    .imagen_portafolio {
+        width: 24%;
+        height: 140px;
+    }
+
+    .card {
+        padding: 30px 30px;
+    }
+
+    .card > img {
+        border-radius: 50%;
+        width: 70px;
+        margin-right: 10px;
+    }
+
+    .social_image {
+        width: 40px;
+        margin-right: 5px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+    header {
+        background: url("../image/imagen_iot3.png");
+        background-size: 550px;
+        background-attachment: local;
+        width: 100%;
+        height: 300px;
+        background-position: center;
+    }
+
+    .textos_portada {
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .contenedor_child {
+        flex-direction: column;
+    }
+
+    .imagen_portafolio {
+        width: 48%;
+        height: 140px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card:nth-child(1) {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .card > img {
+        width: 100px;
+        margin-bottom: 30px;
+    }
+
+    .contenido_contacto {
+        flex-direction: column;
+    }
+
+    .svg_contacto {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .form_contacto {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contenedor_child img {
+        width: 100%;
+    }
+    
+    .contenedor_child .contenido_texto {
+        width: 100%;
+    }
+
+    .social_image {
+        width: 30px;
+        margin-right: 5px;
+    }
+
+    
+}
+
+
+

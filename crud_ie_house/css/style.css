@@ -1,0 +1,607 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/06/2020, 10:16:48 AM
+    Author     : Jhojan
+*/
+
+* {
+    font-family: Ubuntu, sans-serif;
+    box-sizing: border-box;
+    
+}
+
+body {
+    background: linear-gradient(135deg, #4d68dd 0%, #1013d8 100%);
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.global {
+    background: linear-gradient(180deg, transparent 48%, white 39%);
+    width: 100%;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 11vh;
+}
+
+.contenedor_logo {
+    width: 17%;
+}
+
+
+.logo {
+    width: 60%;
+    margin: 0 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 82%;
+    padding: 0 20px 0 10px;
+}
+
+nav .cerrar_sesion {
+    color: white;
+    text-decoration: none;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+    margin: 0 20px;;
+}
+
+header ul li a {
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+header ul li a:hover {
+    opacity: 1;
+}
+
+.contenedor {
+    display: flex;
+    min-height: 89vh;
+}
+
+main {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 3px gray;
+    padding: 30px;
+    display: flex;
+    margin-right: 20px;
+    width: 82%;
+    
+}
+
+h1 {
+    font-size: 15px;
+    margin: 3px 0;
+    color: rgb(168, 168, 168);
+}
+
+main h2 {
+    margin: 0;
+}
+
+.content_left {
+    width: 73%;
+}
+
+.content_right {
+    width: 27%;
+}
+
+.sidebar {
+    background-color: transparent;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+}
+
+.aside_content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aside_content div {
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.aside_content .hud {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 15%;
+}
+
+
+.user_img {
+    width: auto;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.hud {
+    background-color: transparent;
+    min-height: 36%;
+}
+
+.hud h2 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.hud .hr {
+    width: 40%;
+    max-height: 1.5px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.menu_aside {
+    background-color: aliceblue;
+    padding: 50px 0;
+    margin: 0;
+    
+}
+
+.menu_aside .hr {
+    width: 100%;
+    max-height: 1.5px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, #000000 0%, rgb(43, 43, 43) 100%);
+}
+
+.lista_menu {
+    width: 95%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.lista_menu li {
+    list-style: none;
+    margin: 0;
+    
+}
+
+.lista_menu li a {
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    padding: 15px 30px;
+    display: block;
+    font-size: 14px;
+    
+}
+
+.lista_menu li a:hover {
+    color: #000000;
+}
+
+.lista_menu li .active {
+    background: linear-gradient(135deg, #4d68dd 0%, #4c4ed6 100%);
+    color: white;
+    border-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.lista_menu li .active:hover {
+    color: white;
+}
+
+.bombillos_content {
+    border-right: 1px solid rgb(228, 228, 228);
+    max-height: 90%;
+}
+
+.bombillos_content .contenedor_cuartos {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px;
+}
+
+.bombillos_content .cuarto {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.bombillos_content .cuarto ul {
+    display: flex;
+    padding: 0;
+}
+
+.bombillos_content .cuarto ul li {
+    list-style: none;
+    margin: 0;
+    margin-right: 50px;
+}
+
+.bombillos_content .cuarto ul li a {
+    margin: 0;
+    padding: 5px 0;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.bombillos_content .cuarto ul li .active {
+    border-bottom: 2px solid blue;
+    
+}
+
+.bombillos_content .cuarto #form_cuarto {
+    padding: 0;
+    margin: 0;
+}
+
+.bombillos_content .cuarto .form_cuarto_visible {
+    display: none;
+}
+
+#form_cuarto input[type="text"]{
+    border: none;
+    border-bottom: 2px solid blue;
+    padding: 6px 3px;
+    width: 150px;
+    outline: none;
+}
+
+#form_cuarto input[type="submit"]{
+    border: 2px solid blue;
+    background-color: blue;
+    padding: 6px 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.bombillos_content .cuarto  .agregar_cuarto {
+    text-decoration: none;
+    background-color: rgb(43, 46, 255);
+    padding: 2px 8px 4px 8px;
+    color: white;
+    border-radius: 50%;
+    
+}
+
+.tool_cuarto {
+    display: flex;
+    align-items: center;
+}
+
+.tool_cuarto a {
+    background-color: rgb(43, 46, 255);
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 3px 8px;
+    border-radius: 50px;
+}
+
+/*PARA CAMBIAR MAÑANA:*/
+
+.bombillos ul li{
+    list-style: none;
+}
+
+.botonBombilloDiv {
+    margin: 0 40px 25px 0;
+}
+
+.botonBombillo {
+    max-width: 140px;
+    min-width: 140px;
+    max-height: 140px;
+    min-height: 140px;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 0 0 5px 0;
+    font-size: 50px;
+    box-shadow: 0 0 5px gray;
+    color: gray;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bombilloOpc {
+    
+}
+
+.btnEliminarBombillo,
+.btnEditarBombillo {
+    color: blue;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 20px;
+}
+
+.btnEliminarBombillo {
+}
+
+.btnEditarBombillo {
+    margin: 0 0 0 10px;
+}
+
+.bombillos .botonBombillo span{
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.bombillos .botonBombillo div{
+}
+
+.bombillos_content .bombillos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.bombillos_content .bombillos ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.bombillos_content .agregar_bombillo {
+    min-width: 50px;
+    max-height: auto;
+    min-height: auto;
+    background-color: rgb(57, 77, 255);
+    color: white;
+    border-radius: 50%;
+    box-shadow: none;
+    padding: 15px 30px;
+    margin-bottom: 53px;
+}
+
+.botonBombilloActivo {
+    box-shadow: 0 0 10px rgb(49, 46, 231);
+    color: rgb(42, 38, 248);
+}
+
+.modal_content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    width: 330px;
+    height: 100vh;
+    box-shadow: 0 0 20px gray;
+    transition: transform 0.8s;
+    padding: 30px;
+    transform: translateX(150%);
+    overflow-y: scroll;
+}
+
+
+
+.modal_cerrar {
+    /*transform: translateX(150%);*/
+}
+
+.modal .boton_cerrar_modal {
+    padding: 5px 9px;
+    text-decoration: none;
+    border-radius: 100%;
+    color: black;
+    border: 2px solid black;
+}
+
+.nuevo_bombillo {
+    
+}
+
+.nuevo_bombillo img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.nuevo_bombillo form {
+    display: flex;
+    flex-direction: column;
+}
+
+.nuevo_bombillo form {
+    display: none;
+}
+
+.nuevo_bombillo form input,
+.nuevo_bombillo form select {
+    padding: 10px;
+}
+
+.nuevo_bombillo input[type="text"] {
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 3px solid blue;
+    outline: none;
+}
+
+.nuevo_bombillo input[type="submit"] {
+    border: none;
+    background-color: rgb(55, 55, 255);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.select_usuarios_add,
+.select_usuarios_get {
+    margin-top: 20px;
+    /*overflow-y: scroll;*/
+    padding: 2px;
+}
+
+.modal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    
+    background-color: blue;
+    border-radius: 10px;
+}
+
+/*.select_usuarios_add::-webkit-scrollbar,
+.select_usuarios_get::-webkit-scrollbar {
+    width: 5px;
+}
+
+.select_usuarios_add::-webkit-scrollbar-thumb,
+.select_usuarios_get::-webkit-scrollbar-thumb {
+    
+    background-color: blue;
+    border-radius: 10px;
+}*/
+
+.usuario_checkbox_label {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 7px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px gray;
+}
+
+.usuario_checkbox_label:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.usuario_checkbox_label div {
+    display: flex;
+    align-items: center;
+}
+
+.usuario_checkbox_label img {
+    width: 30px;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+.usuario_checkbox{
+    display: none;
+}
+
+.usuario_checkbox:checked + label {
+    background-color: #4c4ed6;
+    color: white;
+}
+
+.acceso_usuario_bombillo {
+    margin-top: 20px;
+}
+
+.permisos {
+    
+}
+
+.permiso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px gray;
+}
+
+.permiso div {
+    display: flex;
+    align-items: center;
+}
+
+.permiso img {
+    width: 30px;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+.permiso a {
+    background-color: rgb(55, 55, 255);
+    color: white;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 50px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+
+
+
+/*#formAddBombillo {
+    display: none;
+}*/
+
+/*form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    width: 300px;
+    padding: 20px;
+    border-top: 5px solid blue;
+    box-shadow: 0 0 3px gray;
+}
+
+form input {
+    margin-bottom: 20px;
+    padding: 10px 5px;
+}
+
+form input[type="submit"] {
+    background-color: blue;
+    border: none;
+    color: white;
+    cursor: pointer;
+}*/
+
+#id_bombillo {
+    display: none;
+}
