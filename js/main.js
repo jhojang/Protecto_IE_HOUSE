@@ -5,6 +5,8 @@ var agregar_cuarto = document.querySelector(".agregar_cuarto");
 var form_cuarto = document.querySelector("#form_cuarto");
 var cuarto_item = document.querySelector("#cuarto_item");
 var bombillos_content = document.querySelector(".bombillos_content");
+const intensitySlider = document.querySelector('#intensitySlider');
+const fillIntensity = document.querySelector('.fillIntensity');
 
 
 
@@ -206,6 +208,7 @@ bombillos.addEventListener("click", function(e){
                 estado = 0;
             }
         }
+        
         var datos = {
             id: botonBombillo.getAttribute("id"),
             state: estado 
@@ -227,6 +230,10 @@ bombillos.addEventListener("click", function(e){
             } else {
                 console.log("Bombillo apagado");
             }
+
+
+            //recarga los bombillos por el boxshadow añadido dinamicamente
+            cargarBombillos();
         });
     }
 
@@ -257,9 +264,14 @@ bombillos.addEventListener("click", function(e){
         modal.style.transform = "translateX(0%)"
         document.querySelector("#formUpdateBombillo").style.display = "flex";
         var nombre_bombillo = document.querySelector("#get_nombre_bombillo");
-        var id_bombillo = document.querySelector("#id_bombillo")
+        var id_bombillo = document.querySelector("#id_bombillo");
+        var data_intensity = document.querySelector("#intensitySlider");
+        var fillIntensity = document.querySelector(".fillIntensity");
         nombre_bombillo.setAttribute("value", e.path[3].firstChild.innerText);
         id_bombillo.setAttribute("value", e.path[3].firstChild.id);
+        data_intensity.setAttribute("data", e.path[3].firstChild.id);
+        data_intensity.value = e.path[3].firstChild.attributes.data_intensidad.value;
+        fillIntensity.style.width = e.path[3].firstChild.attributes.data_intensidad.value + '%';
         modal_content.style.display = "block";
 
 
@@ -476,6 +488,47 @@ formUpdateBombillo.addEventListener("submit", function(e){
 
 
 
+
+
+fillIntensity.style.width = intensitySlider.value + '%';
+
+intensitySlider.addEventListener('input', (e) => {
+    fillIntensity.style.width = intensitySlider.value + '%';
+
+    const id_bombillo_actual = e.path[2].children[1].value;
+    const arreglo_id_bombillos = e.path[5].children[1].children[1].children;
+    console.log(arreglo_id_bombillos);
+    const botonBombilloAvtivo = e.path[5].children[1].children[1].children[0].children[0].classList[1];
+
+    for (let i = 0; i < (arreglo_id_bombillos).length -1; i++) {
+        if (arreglo_id_bombillos[i].children[0].id === id_bombillo_actual && arreglo_id_bombillos[i].children[0].classList[1] === "botonBombilloAvtivo") {
+            if (intensitySlider.value <= 20) {
+                arreglo_id_bombillos[i].children[0].style.boxShadow = "0 0 5px blue";
+            } else {
+                arreglo_id_bombillos[i].children[0].style.boxShadow = "0 0 " + intensitySlider.value / 5 + "px blue";
+            }
+        }
+    }
+
+    const formData = new FormData();
+    formData.append('intensidad', intensitySlider.value);
+    formData.append('id_bombillo', intensitySlider.getAttribute('data'));
+
+    fetch('../../controller/bombilloController/intensidadBombillo.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        // console.log(data);
+        cargarBombillos();
+    })
+
+});
+
+
+
+
 var lista_de_cuartos = document.querySelector(".lista_de_cuartos");
 lista_de_cuartos.addEventListener("click", function(e){
     if (e.path[0].className == "active") {
@@ -487,6 +540,7 @@ lista_de_cuartos.addEventListener("click", function(e){
         fetch("../../controller/bombilloController/getBombillos.php", {method: "GET" })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             var bombillos = document.querySelector(".bombillos");
             var botonBombilloDiv = document.querySelectorAll(".bombillos > .botonBombilloDiv");
             for (let k = 0; k < botonBombilloDiv.length; k++) {
@@ -501,6 +555,7 @@ lista_de_cuartos.addEventListener("click", function(e){
 
                     let button = document.createElement("button");
                     button.setAttribute("id", data[i].id_bombillo);
+                    button.setAttribute("data_intensidad", data[i].intensidad);
                     button.className = "botonBombillo";
 
                     let bombilloOpc = document.createElement("div");
@@ -588,7 +643,7 @@ function cargarBombillos() {
     fetch("../../controller/bombilloController/getBombillos.php", {method: "GET" })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        
         var bombillos = document.querySelector(".bombillos");
         var botonBombilloDiv = document.querySelectorAll(".bombillos > .botonBombilloDiv");
         for (let k = 0; k < botonBombilloDiv.length; k++) {
@@ -601,6 +656,7 @@ function cargarBombillos() {
 
             let button = document.createElement("button");
             button.setAttribute("id", data[i].id_bombillo);
+            button.setAttribute("data_intensidad", data[i].intensidad);
             button.className = "botonBombillo";
 
             let bombilloOpc = document.createElement("div");
@@ -611,6 +667,16 @@ function cargarBombillos() {
             } else {
                 button.classList.add("botonBombilloActivo");
             }
+
+            //box shadow agregado dinámicamente
+            if (button.classList == "botonBombillo botonBombilloActivo") {
+                if (data[i].intensidad <= 20) {
+                    button.style.boxShadow = "0 0 5px blue";
+                } else {
+                    button.style.boxShadow = "0 0 " + data[i].intensidad / 5 + "px blue";
+                }
+            }
+
             let template = `<span class="${data[i].id_cuarto}">${data[i].nombre_bombillo}</span>
                             <div><i class="far fa-lightbulb"></i></div>
                             `;

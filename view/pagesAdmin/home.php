@@ -120,6 +120,13 @@ if (!isset($_SESSION["usuario"]) || $_SESSION["rol"] == 2) {
                                     <br>
                                     <input type="submit" value="Actualizar">
 
+                                    <!-- Slider de intensidad -->
+                                    <h3>Intensidad</h3>
+                                    <div class="intensitySlider-container">
+                                        <div class="barraIntensity"><div class="fillIntensity"></div></div>
+                                        <input type="range" name="intensitySlider" id="intensitySlider" value="0" class="intensitySlider">
+                                    </div>
+
 
                                     <div class="acceso_usuario_bombillo">
                                         <div class="permisos usuarios_permitidos">

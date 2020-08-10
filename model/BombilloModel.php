@@ -76,6 +76,12 @@ class BombilloModel {
         $statement->execute([$id_bombillo, $id_usuario]);
     }
 
+    function setIntensidadById($id_bombillo, $intensidad) {
+        $sql = "UPDATE bombillo SET intensidad = ? WHERE id_bombillo = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$intensidad, $id_bombillo]);
+    }
+
 
 }
 
