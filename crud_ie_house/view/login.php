@@ -44,6 +44,7 @@ if (isset($_SESSION["usuario"])) {
                     <input type="submit" value="Entrar" class="btn_enviar" >
                 </form>
                 <p class="anuncio">¿No tienes cuenta? <a href="registro.php">Regístrate</a></p>
+                <p class="anuncio"><a href="recuperar.php">¿Olvidaste la contraseña?</a></p>
             </div>
         </div>
     </div>

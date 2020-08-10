@@ -6,6 +6,7 @@ class Usuario {
     private $apellido;
     private $email;
     private $pass;
+    private $token;
 
     function __construct($usuario, $nombre, $apellido, $email, $pass) {
         $this->usuario = $usuario;
@@ -53,6 +54,14 @@ class Usuario {
 
     public function getPass() {
         return $this->pass;
+    }
+
+    public function setToken($token) {
+        $this->token = $token;
+    }
+
+    public function getToken() {
+        return $this->token;
     }
 
 }

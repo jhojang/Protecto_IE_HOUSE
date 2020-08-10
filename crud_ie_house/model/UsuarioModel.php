@@ -80,6 +80,32 @@ class UsuarioModel {
         return $resultSet;
     }
 
+    function setTokenByEmail($usuarioClass) {
+        $sql = "UPDATE usuario SET token = ? WHERE correo_usuario = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([
+            $usuarioClass->getToken(),
+            $usuarioClass->getEmail()
+        ]);
+    }
+
+    function updatePasswordTokenByEmail($usuarioClass) {
+        $sql = "UPDATE usuario SET pass_usuario = ?, token = '' WHERE correo_usuario = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([
+            $usuarioClass->getPass(),
+            $usuarioClass->getEmail()
+        ]);
+    }
+
+    function getUsuarioByToken($token) {
+        $sql = "SELECT * FROM usuario WHERE token = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$token]);
+        $resultSet = $statement->fetch();
+        return $resultSet;
+    }
+
 }
 
 ?>

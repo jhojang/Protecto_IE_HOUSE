@@ -21,3 +21,5 @@ SELECT * FROM bombillo_usuario;
 SELECT * FROM bombillo;
 
 SELECT * FROM bombillo_usuario WHERE id_usuario = 2;
+
+ALTER TABLE usuario ADD token varchar(255);
